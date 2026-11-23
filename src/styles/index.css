@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #0B0B0B;
+    --bg-secondary: #171717;
+    --accent-gold: #C9A46A;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B5B5B5;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #0B0B0B;
+    color: #FFFFFF;
+  }
+
+  body {
+    background-color: #0B0B0B;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  /* Custom luxury scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B0B0B;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 4px;
+    border: 1px solid rgba(201, 164, 106, 0.2);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C9A46A;
+  }
+}
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #FFF0D0 0%, #C9A46A 50%, #9F7B3E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .border-gold-gradient {
+    border-image: linear-gradient(135deg, #FFF0D0, #C9A46A, #9F7B3E) 1;
+  }
+
+  .gold-shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(201, 164, 106, 0) 0%,
+      rgba(201, 164, 106, 0.25) 50%,
+      rgba(201, 164, 106, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+  }
+
+  .glass-card {
+    background: rgba(23, 23, 23, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(201, 164, 106, 0.15);
+  }
+
+  .glass-card-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-card-hover:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201, 164, 106, 0.45);
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(201, 164, 106, 0.15);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
